@@ -5,9 +5,10 @@ You should
 
   - Fork this repo
   - Fix the broken unit test
-  - make sure there is adequate test coverage
-  - make sure all code is SOLID!!!
-  - favor imparitive over declaritive programming
-  
+  - make sure there is adequate test coverage. If there is not, write enough unit tests until you are satisfied there is enough coverage
+  - favor imperative over declaritive programming (eg. use LINQ)
+  - make sure all code is clean and of the highest quality 
+  - all code must adhere to SOLID principles!!!
+   
   
 When finished, make a pull request against the master branch.

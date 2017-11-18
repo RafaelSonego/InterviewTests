@@ -6,7 +6,8 @@ You should
   - Fork this repo
   - Fix the broken unit test
   - make sure there is adequate test coverage
-  - and make sure all code is SOLID!!!
+  - make sure all code is SOLID!!!
+  - favor imparitive over declaritive programming
   
   
 When finished, make a pull request against the master branch.

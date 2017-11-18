@@ -5,7 +5,7 @@ You should
 
   - Fork this repo
   - Fix the broken unit test
-  - make sure there is adequate test coverage. If there is not, write enough unit tests until you are satisfied there is enough coverage
+  - make sure there is adequate test coverage.
   - favor imperative over declaritive programming (eg. use LINQ)
   - make sure all code is clean and of the highest quality 
   - all code must adhere to SOLID principles!!!

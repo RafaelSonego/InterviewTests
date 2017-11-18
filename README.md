@@ -9,4 +9,4 @@ You should
   - and make sure all code is SOLID!!!
   
   
-When finished, make a pull request against the master branch
+When finished, make a pull request against the master branch.

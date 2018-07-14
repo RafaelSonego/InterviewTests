@@ -1,4 +1,4 @@
-﻿namespace GraduationTracker
+﻿namespace CarrerCruising.GraduationTracker
 {
     public enum STANDING
     {

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarrerCruising.GraduationTracker.Repository.Impl;
+using CarrerCruising.GraduationTracker.Repository.Impl.Mock;
+using CarrerCruising.GraduationTracker.Repository.Model;
+using CarrerCruising.GraduationTracker;
+using GraduationTracker.Repository.Impl.Mock;
+using System;
 
 namespace GraduationTracker
 {
@@ -11,6 +12,8 @@ namespace GraduationTracker
         //BUG hasgraduated method needs return a bool or change the name of the method
         public Tuple<bool, STANDING> HasGraduated(Diploma diploma, Student student)
         {
+            RequirementRepositoryMock requirementRepository = new RequirementRepositoryMock();
+
             //student credits
             var credits = 0;
             //Student avarege
@@ -27,7 +30,7 @@ namespace GraduationTracker
                 {
                     //Get the diploma requirement
                     //Change to outside of the for looping
-                    var requirement = Repository.GetRequirement(diploma.Requirements[i]);
+                    var requirement = requirementRepository.GetByID(diploma.Requirements[i]);
 
                     //For each courses of requirement
                     for (int k = 0; k < requirement.Courses.Length; k++)

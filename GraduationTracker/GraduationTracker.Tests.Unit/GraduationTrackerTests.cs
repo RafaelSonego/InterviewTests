@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using CarrerCruising.GraduationTracker;
+using CarrerCruising.GraduationTracker.Repository.Impl;
+using CarrerCruising.GraduationTracker.Repository.Impl.Mock;
 
 namespace GraduationTracker.Tests.Unit
 {
@@ -11,12 +14,12 @@ namespace GraduationTracker.Tests.Unit
         [TestMethod]
         public void TestHasCredits()
         {
+            var studentRepository = new StudentRepositoryMock();
+            var diplomaRepository = new DiplomaRepositoryMock();
             var tracker = new GraduationTracker();
 
-            var diploma = Repository.GetDiploma(1); //Get a specific diploma
-
-            var students = Repository.GetStudents(); //Get All Students
-            
+            var diploma = diplomaRepository.GetByID(1);
+            var students = studentRepository.GetAll();
             var graduated = new List<Tuple<bool, STANDING>>(); 
 
             //For each student, check if the student has the rules to be graduated and add to the list

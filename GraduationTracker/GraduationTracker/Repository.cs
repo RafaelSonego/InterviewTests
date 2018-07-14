@@ -36,7 +36,6 @@ namespace GraduationTracker
                 }
             }
             return diploma;
-
         }
 
         public static Requirement GetRequirement(int id)
@@ -54,8 +53,7 @@ namespace GraduationTracker
             return requirement;
         }
 
-
-        private static Diploma[] GetDiplomas()
+        public static Diploma[] GetDiplomas()
         {
             return new[]
             {
@@ -69,16 +67,17 @@ namespace GraduationTracker
         }
 
         public static Requirement[] GetRequirements()
-        {   
-                return new[]
-                {
+        {
+            return new[]
+            {
                     new Requirement{Id = 100, Name = "Math", MinimumMark=50, Courses = new int[]{1}, Credits=1 },
                     new Requirement{Id = 102, Name = "Science", MinimumMark=50, Courses = new int[]{2}, Credits=1 },
                     new Requirement{Id = 103, Name = "Literature", MinimumMark=50, Courses = new int[]{3}, Credits=1},
                     new Requirement{Id = 104, Name = "Physichal Education", MinimumMark=50, Courses = new int[]{4}, Credits=1 }
                 };
         }
-        private static Student[] GetStudents()
+
+        public static Student[] GetStudents()
         {
             return new[]
             {

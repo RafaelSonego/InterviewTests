@@ -4,20 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarrerCruising.GraduationTracker.Repository.Model;
+using CarrerCruising.GraduationTracker.Repository.Impl;
+using Moq;
+using CarrerCruising.GraduationTracker.Repository;
 
-namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
+namespace GraduationTracker.Tests.Unit.Mock
 {
-    public class StudentRepositoryMock : IRepository<Student>
+    public class StudentRepositoryMock
     {
-        public Student GetByID(int Id)
+        public static StudentRepository GetStudentRepository()
         {
-            var student = GetAll().Single(a => a.Id == Id);
-            return student;
+            Mock<StudentRepository> StudentRepositoryMock = new Mock<StudentRepository>();
+
+            StudentRepositoryMock
+                .Setup(repository => repository.GetAll())
+                .Returns(GetAll());
+
+            StudentRepositoryMock
+                .Setup(repository => repository.GetByID(It.IsAny<int>()))
+                .Returns((int Id) => GetByID(Id));
+
+            return StudentRepositoryMock.Object;
         }
 
-        public List<Student> GetAll()
+        private static List<Student> GetAll()
         {
-            Student studentA = new Student
+            var AllStudents = new List<Student>()
+            {
+                new Student
             {
                 Id = 1,
                 Courses = new Course[]
@@ -27,8 +41,8 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
                         new Course{Id = 3, Name = "Literature", Mark=95 },
                         new Course{Id = 4, Name = "Physichal Education", Mark=95 }
                 }
-            };
-            Student studentB = new Student
+            },
+                new Student
             {
                 Id = 2,
                 Courses = new Course[]
@@ -38,8 +52,8 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
                         new Course{Id = 3, Name = "Literature", Mark=80 },
                         new Course{Id = 4, Name = "Physichal Education", Mark=80 }
                 }
-            };
-            Student studentC = new Student
+            },
+                new Student
             {
                 Id = 3,
                 Courses = new Course[]
@@ -49,8 +63,8 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
                     new Course{Id = 3, Name = "Literature", Mark=50 },
                     new Course{Id = 4, Name = "Physichal Education", Mark=50 }
                 }
-            };
-            Student studentD = new Student
+            },
+                new Student
             {
                 Id = 4,
                 Courses = new Course[]
@@ -60,17 +74,15 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
                     new Course{Id = 3, Name = "Literature", Mark=40 },
                     new Course{Id = 4, Name = "Physichal Education", Mark=40 }
                 }
-            };
+            }
+        };
+            return AllStudents;
+        }
 
-            List<Student> listAllStudents = new List<Student>
-            {
-                studentA,
-                studentB,
-                studentC,
-                studentD
-            };
-
-            return listAllStudents;
+        private static Student GetByID(int Id)
+        {
+            var student = GetAll().Single(a => a.Id == Id);
+            return student;
         }
     }
 }

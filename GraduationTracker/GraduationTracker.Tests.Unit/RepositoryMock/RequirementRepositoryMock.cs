@@ -1,16 +1,30 @@
-﻿using CarrerCruising.GraduationTracker.Repository;
+﻿
+using CarrerCruising.GraduationTracker.Repository.Impl;
 using CarrerCruising.GraduationTracker.Repository.Model;
-using System;
+using Moq;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GraduationTracker.Repository.Impl.Mock
+namespace GraduationTracker.Tests.Unit.Mock
 {
-    class RequirementRepositoryMock : IRepository<Requirement>
+    class RequirementRepositoryMock
     {
-        public List<Requirement> GetAll()
+
+        public static RequirementRepository GetDiplomaRepository()
+        {
+            Mock<RequirementRepository> RequirementRepositoryMock = new Mock<RequirementRepository>();
+            RequirementRepositoryMock
+               .Setup(repository => repository.GetAll())
+               .Returns(GetAll());
+
+            RequirementRepositoryMock
+                .Setup(repository => repository.GetByID(It.IsAny<int>()))
+                .Returns((int Id) => GetByID(Id));
+
+            return RequirementRepositoryMock.Object;
+        }
+
+        public static List<Requirement> GetAll()
         {
             Requirement MathRequirement = new Requirement { Id = 100, Name = "Math", MinimumMark = 50, Courses = new int[] { 1 }, Credits = 1 };
             Requirement ScienceRequirement = new Requirement { Id = 102, Name = "Science", MinimumMark = 50, Courses = new int[] { 2 }, Credits = 1 };
@@ -28,7 +42,7 @@ namespace GraduationTracker.Repository.Impl.Mock
             return listAllRequirements;
         }
 
-        public Requirement GetByID(int Id)
+        public static Requirement GetByID(int Id)
         {
             var requirement = GetAll().Single(a => a.Id == Id);
             return requirement;

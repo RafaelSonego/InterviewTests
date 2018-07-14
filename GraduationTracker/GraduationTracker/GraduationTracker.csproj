@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repository\Impl\Mock\CourseRepositoryMock.cs" />
-    <Compile Include="Repository\Impl\Mock\DiplomaRepositoryMock.cs" />
-    <Compile Include="Repository\Impl\Mock\RequirementRepositoryMock.cs" />
+    <Compile Include="Repository\Impl\CourseRepository.cs" />
+    <Compile Include="Repository\Impl\DiplomaRepository.cs" />
+    <Compile Include="Repository\Impl\RequirementRepository.cs" />
+    <Compile Include="Repository\Impl\StudentRepository.cs" />
     <Compile Include="Repository\Model\Course.cs" />
     <Compile Include="Repository\Model\Diploma.cs" />
     <Compile Include="GraduationTracker.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Repository\EntityBase.cs" />
     <Compile Include="STANDING.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Impl\Mock\StudentRepositoryMock.cs" />
     <Compile Include="Repository\Model\Requirement.cs" />
     <Compile Include="Repository\Model\Student.cs" />
   </ItemGroup>

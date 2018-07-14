@@ -1,8 +1,6 @@
 ﻿using CarrerCruising.GraduationTracker.Repository.Impl;
-using CarrerCruising.GraduationTracker.Repository.Impl.Mock;
 using CarrerCruising.GraduationTracker.Repository.Model;
 using CarrerCruising.GraduationTracker;
-using GraduationTracker.Repository.Impl.Mock;
 using System;
 
 namespace GraduationTracker
@@ -12,7 +10,7 @@ namespace GraduationTracker
         //BUG hasgraduated method needs return a bool or change the name of the method
         public Tuple<bool, STANDING> HasGraduated(Diploma diploma, Student student)
         {
-            RequirementRepositoryMock requirementRepository = new RequirementRepositoryMock();
+            RequirementRepository requirementRepository = new RequirementRepository();
 
             //student credits
             var credits = 0;

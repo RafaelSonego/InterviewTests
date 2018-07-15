@@ -2,6 +2,10 @@
 {
     public abstract class EntityBase
     {
-        public int Id { get; set; }
+        public EntityBase(int Id)
+        {
+            this.Id = Id;
+        }
+        public int Id { get; private set; }
     }
 }

@@ -26,9 +26,8 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
 
         private static List<Diploma> GetAll()
         {
-            var diploma = new Diploma
+            var diploma = new Diploma(1)
             {
-                Id = 1,
                 Credits = 4,
                 Requirements = new int[] { 100, 102, 103, 104 }
             };

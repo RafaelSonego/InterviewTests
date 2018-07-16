@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarrerCruising.GraduationTracker.Repository.Model;
+using GraduationTracker.Tests.Unit.Mock;
 using Moq;
 
 namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
@@ -26,10 +27,19 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
 
         private static List<Diploma> GetAll()
         {
+            RequirementRepository RequirementRepository = RequirementRepositoryMock.GetRequirementRepository();
+            var ListRequirements = new List<Requirement>()
+            {
+                RequirementRepository.GetByID(100),
+                RequirementRepository.GetByID(102),
+                RequirementRepository.GetByID(103),
+                RequirementRepository.GetByID(104)
+
+            };
             var diploma = new Diploma(1)
             {
                 Credits = 4,
-                Requirements = new int[] { 100, 102, 103, 104 }
+                Requirements = ListRequirements
             };
 
             var listAllDiplomas = new List<Diploma>
@@ -42,7 +52,7 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
 
         public static Diploma GetByID(int Id)
         {
-            var diploma = GetAll().Single(a => a.Id == Id);
+            var diploma = GetAll().Where(a => a.Id == Id).FirstOrDefault();
             return diploma;
         }
     }

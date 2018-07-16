@@ -1,6 +1,7 @@
 ﻿
 using CarrerCruising.GraduationTracker.Repository.Impl;
 using CarrerCruising.GraduationTracker.Repository.Model;
+using GraduationTracker.Repository.Impl.Mock;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace GraduationTracker.Tests.Unit.Mock
     class RequirementRepositoryMock
     {
 
-        public static RequirementRepository GetDiplomaRepository()
+        public static RequirementRepository GetRequirementRepository()
         {
             Mock<RequirementRepository> RequirementRepositoryMock = new Mock<RequirementRepository>();
             RequirementRepositoryMock
@@ -26,19 +27,20 @@ namespace GraduationTracker.Tests.Unit.Mock
 
         public static List<Requirement> GetAll()
         {
+            CourseRepository CourseRepository = CourseRepositoryMock.GetCourseRepository();
             var AllRequirements = new List<Requirement>()
             {
-                new Requirement(100) { Name = "Math", MinimumMark = 50, Courses = new int[] { 1 }, Credits = 1 },
-                new Requirement(102) { Name = "Science", MinimumMark = 50, Courses = new int[] { 2 }, Credits = 1 },
-                new Requirement(103) { Name = "Literature", MinimumMark = 50, Courses = new int[] { 3 }, Credits = 1 },
-                new Requirement(104) { Name = "Physichal Education", MinimumMark = 50, Courses = new int[] { 4 }, Credits = 1 }
+                new Requirement(100) { MinimumMark = 50, Course = CourseRepository.GetByID(1), Credits = 1 },
+                new Requirement(102) { MinimumMark = 50, Course = CourseRepository.GetByID(2), Credits = 1 },
+                new Requirement(103) { MinimumMark = 50, Course = CourseRepository.GetByID(3), Credits = 1 },
+                new Requirement(104) { MinimumMark = 50, Course = CourseRepository.GetByID(4), Credits = 1 }
             };
             return AllRequirements;
         }
 
         public static Requirement GetByID(int Id)
         {
-            var requirement = GetAll().Single(a => a.Id == Id);
+            var requirement = GetAll().Where(a => a.Id == Id).FirstOrDefault();
             return requirement;
         }
 

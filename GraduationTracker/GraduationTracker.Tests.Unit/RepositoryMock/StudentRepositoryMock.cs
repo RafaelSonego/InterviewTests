@@ -7,6 +7,7 @@ using CarrerCruising.GraduationTracker.Repository.Model;
 using CarrerCruising.GraduationTracker.Repository.Impl;
 using Moq;
 using CarrerCruising.GraduationTracker.Repository;
+using GraduationTracker.Repository.Impl.Mock;
 
 namespace GraduationTracker.Tests.Unit.Mock
 {
@@ -29,55 +30,61 @@ namespace GraduationTracker.Tests.Unit.Mock
 
         private static List<Student> GetAll()
         {
+            CourseRepository CourseRepository = CourseRepositoryMock.GetCourseRepository();
+            Course MathCourse = CourseRepository.GetByID(1);
+            Course ScienceCourse = CourseRepository.GetByID(2);
+            Course LiteratureCourse = CourseRepository.GetByID(3);
+            Course PhysichalEducationCourse = CourseRepository.GetByID(4);
+
             var AllStudents = new List<Student>()
             {
                 new Student(1)
-            {
-                Courses = new Course[]
                 {
-                        new Course(1){Name = "Math", Mark=95 },
-                        new Course(2){Name = "Science", Mark=95 },
-                        new Course(3){Name = "Literature", Mark=95 },
-                        new Course(4){Name = "Physichal Education", Mark=95 }
-                }
-            },
-                new Student(2)
-            {
-                Courses = new Course[]
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 95),
+                        new StudentProgress(ScienceCourse, 95),
+                        new StudentProgress(LiteratureCourse, 95),
+                        new StudentProgress(PhysichalEducationCourse, 95)
+                    }
+                },
+                new Student(1)
                 {
-                        new Course(1){Name = "Math", Mark=80 },
-                        new Course(2){Name = "Science", Mark=80 },
-                        new Course(3){Name = "Literature", Mark=80 },
-                        new Course(4){Name = "Physichal Education", Mark=80 }
-                }
-            },
-                new Student(3)
-            {
-                Courses = new Course[]
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 80),
+                        new StudentProgress(ScienceCourse, 80),
+                        new StudentProgress(LiteratureCourse, 80),
+                        new StudentProgress(PhysichalEducationCourse, 80)
+                    }
+                },
+                new Student(1)
                 {
-                    new Course(1){Name = "Math", Mark=50 },
-                    new Course(2){Name = "Science", Mark=50 },
-                    new Course(3){Name = "Literature", Mark=50 },
-                    new Course(4){Name = "Physichal Education", Mark=50 }
-                }
-            },
-                new Student(4)
-            {
-                Courses = new Course[]
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 50),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 50),
+                        new StudentProgress(PhysichalEducationCourse, 50)
+                    }
+                },
+                new Student(1)
                 {
-                    new Course(1){Name = "Math", Mark=40 },
-                    new Course(2){Name = "Science", Mark=40 },
-                    new Course(3){Name = "Literature", Mark=40 },
-                    new Course(4){Name = "Physichal Education", Mark=40 }
-                }
-            }
-        };
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 40),
+                        new StudentProgress(ScienceCourse, 40),
+                        new StudentProgress(LiteratureCourse, 40),
+                        new StudentProgress(PhysichalEducationCourse, 40)
+                    }
+                },
+            };
             return AllStudents;
         }
 
         private static Student GetByID(int Id)
         {
-            var student = GetAll().Single(a => a.Id == Id);
+            var student = GetAll().Where(a => a.Id == Id).FirstOrDefault();
             return student;
         }
     }

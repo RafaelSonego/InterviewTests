@@ -10,7 +10,6 @@ namespace CarrerCruising.GraduationTracker.AcademicStanding
     {
         private IStanding NextStanding;
 
-
         public Standing GetStanding(int Average)
         {
             if (Average < 80)

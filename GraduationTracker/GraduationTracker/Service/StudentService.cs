@@ -29,7 +29,7 @@ namespace CarrerCruising.GraduationTracker.Service
             {
                 var studentProgress = listStudentProgress.Where(progress => progress.Course.Id == requirement.Course.Id).FirstOrDefault();
 
-                if (studentProgress.Mark > requirement.MinimumMark)
+                if (studentProgress.Mark >= requirement.MinimumMark)
                     credits += requirement.Credits;
             }
             return credits;

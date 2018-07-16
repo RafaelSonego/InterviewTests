@@ -61,7 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GraduationTrackerBase.cs" />
+    <Compile Include="Base\GraduationTrackerBase.cs" />
+    <Compile Include="StudentServiceTests.cs" />
     <Compile Include="GraduationTrackerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryMock\CourseRepositoryMock.cs" />

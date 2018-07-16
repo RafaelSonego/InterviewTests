@@ -28,12 +28,29 @@ namespace GraduationTracker.Tests.Unit.Mock
         public static List<Requirement> GetAll()
         {
             CourseRepository CourseRepository = CourseRepositoryMock.GetCourseRepository();
+
+            Course MathCourse = CourseRepository.GetByID(1);
+            Course ScienceCourse = CourseRepository.GetByID(2);
+            Course LiteratureCourse = CourseRepository.GetByID(3);
+            Course PhysichalEducationCourse = CourseRepository.GetByID(4);
+
             var AllRequirements = new List<Requirement>()
             {
-                new Requirement(100) { MinimumMark = 50, Course = CourseRepository.GetByID(1), Credits = 1 },
-                new Requirement(102) { MinimumMark = 50, Course = CourseRepository.GetByID(2), Credits = 1 },
-                new Requirement(103) { MinimumMark = 50, Course = CourseRepository.GetByID(3), Credits = 1 },
-                new Requirement(104) { MinimumMark = 50, Course = CourseRepository.GetByID(4), Credits = 1 }
+                new Requirement(100) { MinimumMark = 50, Course = MathCourse, Credits = 10 },
+                new Requirement(105) { MinimumMark = 60, Course = MathCourse, Credits = 20 },
+                new Requirement(109) { MinimumMark = 70, Course = MathCourse, Credits = 30 },
+
+                new Requirement(102) { MinimumMark = 50, Course = ScienceCourse, Credits = 10 },
+                new Requirement(106) { MinimumMark = 60, Course = ScienceCourse, Credits = 20 },
+                new Requirement(110) { MinimumMark = 70, Course = ScienceCourse, Credits = 30 },
+
+                new Requirement(103) { MinimumMark = 50, Course = LiteratureCourse, Credits = 10 },
+                new Requirement(107) { MinimumMark = 60, Course = LiteratureCourse, Credits = 20 },
+                new Requirement(111) { MinimumMark = 70, Course = LiteratureCourse, Credits = 30 },
+
+                new Requirement(104) { MinimumMark = 50, Course = PhysichalEducationCourse, Credits = 10 },
+                new Requirement(108) { MinimumMark = 60, Course = PhysichalEducationCourse, Credits = 20 },
+                new Requirement(112) { MinimumMark = 70, Course = PhysichalEducationCourse, Credits = 30 }
             };
             return AllRequirements;
         }

@@ -28,26 +28,51 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl.Mock
         private static List<Diploma> GetAll()
         {
             RequirementRepository RequirementRepository = RequirementRepositoryMock.GetRequirementRepository();
-            var ListRequirements = new List<Requirement>()
-            {
-                RequirementRepository.GetByID(100),
-                RequirementRepository.GetByID(102),
-                RequirementRepository.GetByID(103),
-                RequirementRepository.GetByID(104)
 
-            };
-            var diploma = new Diploma(1)
+            var AllDiplomas = new List<Diploma>
             {
-                Credits = 4,
-                Requirements = ListRequirements
+                //Total of Requirements Credit = 70
+                new Diploma(1)
+                {
+                    Credits = 61,
+                    Requirements = new List<Requirement>()
+                    {
+                        RequirementRepository.GetByID(100), //MinimumMark = 50
+                        RequirementRepository.GetByID(106), //MinimumMark = 60
+                        RequirementRepository.GetByID(111), //MinimumMark = 70
+                        RequirementRepository.GetByID(104) //MinimumMark = 50
+
+                    }
+                },
+                //Total of Requirements Credit = 90
+                new Diploma(2)
+                {
+                    Credits = 81,
+                    Requirements = new List<Requirement>()
+                    {
+                        RequirementRepository.GetByID(109), //MinimumMark = 70
+                        RequirementRepository.GetByID(102), //MinimumMark = 50
+                        RequirementRepository.GetByID(111), //MinimumMark = 70
+                        RequirementRepository.GetByID(108) //MinimumMark = 60
+
+                    }
+                },
+                //Total of Requirements Credit = 80
+                new Diploma(3)
+                {
+                    Credits = 71,
+                    Requirements = new List<Requirement>()
+                    {
+                        RequirementRepository.GetByID(105), //MinimumMark = 60
+                        RequirementRepository.GetByID(102), //MinimumMark = 50
+                        RequirementRepository.GetByID(107), //MinimumMark = 60
+                        RequirementRepository.GetByID(112) //MinimumMark = 70
+
+                    }
+                }
             };
 
-            var listAllDiplomas = new List<Diploma>
-            {
-                diploma
-            };
-
-            return listAllDiplomas;
+            return AllDiplomas;
         }
 
         public static Diploma GetByID(int Id)

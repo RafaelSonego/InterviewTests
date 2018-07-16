@@ -38,46 +38,177 @@ namespace GraduationTracker.Tests.Unit.Mock
 
             var AllStudents = new List<Student>()
             {
+#region Students for DIPLOMA Id = 1
                 new Student(1)
                 {
                     StudentProgress = new List<StudentProgress>()
                     {
-                        new StudentProgress(MathCourse, 95),
-                        new StudentProgress(ScienceCourse, 95),
-                        new StudentProgress(LiteratureCourse, 95),
-                        new StudentProgress(PhysichalEducationCourse, 95)
-                    }
-                },
-                new Student(1)
-                {
-                    StudentProgress = new List<StudentProgress>()
-                    {
-                        new StudentProgress(MathCourse, 80),
-                        new StudentProgress(ScienceCourse, 80),
+                        new StudentProgress(MathCourse, 60),
+                        new StudentProgress(ScienceCourse, 60),
                         new StudentProgress(LiteratureCourse, 80),
-                        new StudentProgress(PhysichalEducationCourse, 80)
+                        new StudentProgress(PhysichalEducationCourse, 50)
                     }
                 },
-                new Student(1)
+
+                new Student(2)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 49),
+                        new StudentProgress(ScienceCourse, 60),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 50)
+                    }
+                },
+
+                new Student(3)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 50),
+                        new StudentProgress(ScienceCourse, 59),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 50)
+                    }
+                },
+
+                new Student(4)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 50),
+                        new StudentProgress(ScienceCourse, 60),
+                        new StudentProgress(LiteratureCourse, 69),
+                        new StudentProgress(PhysichalEducationCourse, 50)
+                    }
+                },
+
+                new Student(5)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 50),
+                        new StudentProgress(ScienceCourse, 60),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 49)
+                    }
+                },
+#endregion
+
+#region Students for DIPLOMA Id = 2
+                new Student(6)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 70),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 60)
+                    }
+                },
+
+                new Student(7)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 69),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 60)
+                    }
+                },
+
+                new Student(8)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 70),
+                        new StudentProgress(ScienceCourse, 49),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 60)
+                    }
+                },
+
+                new Student(9)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 70),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 69),
+                        new StudentProgress(PhysichalEducationCourse, 60)
+                    }
+                },
+
+                new Student(10)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 70),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 70),
+                        new StudentProgress(PhysichalEducationCourse, 59)
+                    }
+                },
+#endregion
+
+#region Students for DIPLOMA Id = 3
+                new Student(11)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 61),
+                        new StudentProgress(ScienceCourse, 51),
+                        new StudentProgress(LiteratureCourse, 61),
+                        new StudentProgress(PhysichalEducationCourse, 71)
+                    }
+                },
+
+                new Student(12)
                 {
                     StudentProgress = new List<StudentProgress>()
                     {
                         new StudentProgress(MathCourse, 50),
                         new StudentProgress(ScienceCourse, 50),
-                        new StudentProgress(LiteratureCourse, 50),
-                        new StudentProgress(PhysichalEducationCourse, 50)
+                        new StudentProgress(LiteratureCourse, 60),
+                        new StudentProgress(PhysichalEducationCourse, 70)
                     }
                 },
-                new Student(1)
+
+                new Student(13)
                 {
                     StudentProgress = new List<StudentProgress>()
                     {
-                        new StudentProgress(MathCourse, 40),
+                        new StudentProgress(MathCourse, 60),
                         new StudentProgress(ScienceCourse, 40),
-                        new StudentProgress(LiteratureCourse, 40),
-                        new StudentProgress(PhysichalEducationCourse, 40)
+                        new StudentProgress(LiteratureCourse, 60),
+                        new StudentProgress(PhysichalEducationCourse, 70)
                     }
                 },
+
+                new Student(14)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 60),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 50),
+                        new StudentProgress(PhysichalEducationCourse, 70)
+                    }
+                },
+
+                new Student(15)
+                {
+                    StudentProgress = new List<StudentProgress>()
+                    {
+                        new StudentProgress(MathCourse, 60),
+                        new StudentProgress(ScienceCourse, 50),
+                        new StudentProgress(LiteratureCourse, 50),
+                        new StudentProgress(PhysichalEducationCourse, 60)
+                    }
+                }
+#endregion
+
             };
             return AllStudents;
         }

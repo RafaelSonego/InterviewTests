@@ -5,6 +5,7 @@ using System.Linq;
 using CarrerCruising.GraduationTracker;
 using CarrerCruising.GraduationTracker.Repository.Impl;
 using CarrerCruising.GraduationTracker.Repository.Impl.Mock;
+using CarrerCruising.GraduationTracker.Repository.Model;
 
 namespace GraduationTracker.Tests.Unit
 {
@@ -12,21 +13,38 @@ namespace GraduationTracker.Tests.Unit
     public class GraduationTrackerTests : GraduationTrackerBase
     {
         [TestMethod]
-        public void TestHasCredits()
+        public void Do_Not_Have_Students_Graduated_Of_All_List_Of_Student()
+        {
+            var diploma = DiplomaRepository.GetByID(1);
+            var student = StudentRepository.GetByID(1);
+            var graduated = new List<Student>();
+
+            Assert.IsTrue(Tracker.StudentHasGraduated(diploma, student));
+        }
+
+        [TestMethod]
+        public void Get_All_Graduated_Students()
         {
             var diploma = DiplomaRepository.GetByID(1);
             var students = StudentRepository.GetAll();
-            var graduated = new List<Tuple<bool, STANDING>>(); 
 
-            //For each student, check if the student has the rules to be graduated and add to the list
-            foreach(var student in students)
-            {
-                graduated.Add(Tracker.HasGraduated(diploma, student));      
-            }
+            var studentsGraduated = Tracker.GetStudentsGraduated(diploma, students);
 
-            //Check if the list is empty - When we don~t have any graduated student
-            Assert.IsFalse(graduated.Any());
-
+            Assert.IsTrue(studentsGraduated.Any());
+            Assert.AreEqual(3, studentsGraduated.Count);
         }
+
+        [TestMethod]
+        public void Get_All_Not_Graduated_Students()
+        {
+            var diploma = DiplomaRepository.GetByID(1);
+            var students = StudentRepository.GetAll();
+
+            var studentsNotGraduated = Tracker.GetStudentsNotGraduated(diploma, students);
+
+            Assert.IsTrue(studentsNotGraduated.Any());
+            Assert.AreEqual(1, studentsNotGraduated.Count);
+        }
+
     }
 }

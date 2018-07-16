@@ -1,4 +1,6 @@
-﻿namespace CarrerCruising.GraduationTracker.Repository.Model
+﻿using System.Collections.Generic;
+
+namespace CarrerCruising.GraduationTracker.Repository.Model
 {
     public class Student : EntityBase
     {
@@ -6,7 +8,7 @@
         {
         }
 
-        public Course[] Courses { get; set; }
+        public List<StudentProgress> StudentProgress { get; set; }
 
     }
 }

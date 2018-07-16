@@ -1,4 +1,6 @@
-﻿namespace CarrerCruising.GraduationTracker.Repository.Model
+﻿using System.Collections.Generic;
+
+namespace CarrerCruising.GraduationTracker.Repository.Model
 {
     public class Diploma : EntityBase
     {
@@ -7,7 +9,7 @@
         }
 
         public int Credits { get; set; }
-        public int[] Requirements { get; set; }
+        public List<Requirement> Requirements { get; set; }
 
     }
 }

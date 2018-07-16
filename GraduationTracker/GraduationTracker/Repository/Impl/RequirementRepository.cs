@@ -6,12 +6,12 @@ namespace CarrerCruising.GraduationTracker.Repository.Impl
 {
     public class RequirementRepository : IRepository<Requirement>
     {
-        public List<Requirement> GetAll()
+        public virtual List<Requirement> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Requirement GetByID(int Id)
+        public virtual Requirement GetByID(int Id)
         {
             throw new NotImplementedException();
         }

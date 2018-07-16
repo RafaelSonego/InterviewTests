@@ -37,7 +37,9 @@ namespace GraduationTracker
         {
             var StudentAverage = StudentService.CalculateAverageForDiplomaRequirements(diploma.Requirements, student.StudentProgress);
 
-            var standing = StudentService.GetAcademicStanding(StudentAverage);
+            var StudentCredits = StudentService.CalculateCreditForDiplomaRequirements(diploma.Requirements, student.StudentProgress);
+
+            var standing = StudentService.GetAcademicStanding(StudentAverage, StudentCredits, diploma.Credits);
 
             return StudentService.IsGraduated(standing);
         }

@@ -35,8 +35,11 @@ namespace CarrerCruising.GraduationTracker.Service
             return credits;
         }
 
-        public static Standing GetAcademicStanding(int studentAverage)
+        public static Standing GetAcademicStanding(int studentAverage, int studentCredits, int diplomaCredits)
         {
+            if (studentCredits < diplomaCredits)
+                return Standing.Remedial;
+
             StandingRemedial remedial = new StandingRemedial();
             StandingAverage average = new StandingAverage();
             StandingMagnaCumLaude magnaCumLaude = new StandingMagnaCumLaude();
